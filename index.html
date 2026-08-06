@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>婚禮邀請</title>
+<meta name="description" content="誠摯邀請您參加我們的婚禮，請撥空填寫出席回覆。">
+<meta property="og:title" content="我們要結婚了">
+<meta property="og:description" content="時間、地點與出席回覆都在這裡，請撥空填寫表單。">
+<meta property="og:image" content="hero-couple.jpg">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400&family=Noto+Serif+TC:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --paper:#FBF8F2;        /* 和紙 */
+  --kinari:#EDE7DB;       /* 生成り */
+  --ink:#33302B;          /* 墨 */
+  --ink-soft:rgba(51,48,43,.60);
+  --hair:rgba(51,48,43,.14);
+  --hai:#C9BCB0;          /* 灰梅（新娘和服） */
+  --kin:#A98C52;          /* 金彩 */
+  --tsutsuji:#C0424B;     /* 杜鵑紅 */
+  --serif:"Noto Serif TC",serif;
+  --lat:"Jost",system-ui,sans-serif;
+  --pad:clamp(22px,5.5vw,64px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;color:var(--ink);line-height:1.95;
+  font-family:var(--serif);font-weight:300;
+  background:var(--kinari);
+  -webkit-font-smoothing:antialiased;
+}
+/* 菱文（取自新郎羽織）極淡底紋 */
+body::before{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.5;
+  background-image:
+    repeating-linear-gradient(45deg,transparent 0 15px,rgba(51,48,43,.045) 15px 16px),
+    repeating-linear-gradient(-45deg,transparent 0 15px,rgba(51,48,43,.045) 15px 16px);
+}
+.wrap{position:relative;z-index:1;max-width:660px;margin:0 auto;
+  background:var(--paper);box-shadow:0 0 70px rgba(51,48,43,.10)}
+
+/* ───────── hero ───────── */
+.hero{position:relative;height:min(104svh,900px);min-height:560px;overflow:hidden}
+.hero img{width:100%;height:100%;object-fit:cover;object-position:50% 24%;display:block}
+.hero__veil{position:absolute;inset:0;background:linear-gradient(to bottom,
+  rgba(51,48,43,.10) 0%, rgba(51,48,43,0) 26%,
+  rgba(251,248,242,0) 42%, rgba(251,248,242,.90) 76%, var(--paper) 100%)}
+.hero__type{position:absolute;left:0;right:0;bottom:0;
+  padding:0 var(--pad) clamp(26px,7vw,52px);
+  display:flex;align-items:flex-end;justify-content:space-between;gap:18px}
+
+.vt{writing-mode:vertical-rl;text-orientation:upright;text-align:start}
+.vt__eyebrow{margin:0 0 0 18px;font-size:.72rem;letter-spacing:.55em;
+  color:var(--kin);font-weight:500}
+.vt__names{margin:0;font-weight:700;line-height:1;
+  font-size:clamp(1.85rem,8.2vw,2.7rem);letter-spacing:.2em}
+.vt__names span{display:block;margin-left:clamp(14px,4vw,22px)}
+.vt__names span:first-child{margin-left:0}
+
+.hero__date{margin:0;font-family:var(--lat);font-weight:200;letter-spacing:.34em;
+  font-size:clamp(.95rem,4.2vw,1.25rem);line-height:1.5;padding-bottom:.3em}
+.hero__date b{display:block;font-weight:300;font-size:.62em;letter-spacing:.42em;
+  color:var(--ink-soft);margin-top:.7em}
+
+/* ───────── 水引 ───────── */
+.mizuhiki{display:block;width:min(210px,52%);height:auto;margin:0 auto}
+.mizuhiki path{fill:none;stroke-linecap:round;stroke-width:1.7}
+.knot{padding:clamp(38px,9vw,58px) var(--pad) 0}
+@media (prefers-reduced-motion:no-preference){
+  .mizuhiki path{stroke-dasharray:420;stroke-dashoffset:420;
+    animation:draw 2.2s cubic-bezier(.5,0,.2,1) forwards}
+  .mizuhiki path:nth-child(2){animation-delay:.12s}
+  .mizuhiki path:nth-child(3){animation-delay:.24s}
+  .mizuhiki path:nth-child(4){animation-delay:.36s}
+  @keyframes draw{to{stroke-dashoffset:0}}
+}
+
+/* ───────── sections ───────── */
+section{padding:clamp(42px,10vw,66px) var(--pad)}
+.greet{text-align:center;padding-top:clamp(28px,7vw,40px)}
+.greet p{margin:0 auto;max-width:23em;font-size:1rem;line-height:2.3;color:var(--ink-soft)}
+.greet .count{margin-top:clamp(26px,6vw,34px);font-family:var(--lat);font-weight:300;
+  font-size:.82rem;letter-spacing:.28em;color:var(--kin)}
+.greet .count b{font-weight:400;font-size:1.7em;letter-spacing:.06em;color:var(--ink)}
+
+.title{margin:0 0 clamp(28px,6vw,38px);padding-bottom:14px;border-bottom:1px solid var(--hair);
+  display:flex;align-items:baseline;gap:14px}
+.title .lat{font-family:var(--lat);font-weight:300;font-size:.66rem;
+  letter-spacing:.4em;color:var(--kin);flex:none}
+.title h2{margin:0;font-weight:500;font-size:1.14rem;letter-spacing:.28em;text-indent:.28em}
+
+/* 兩張人像 */
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:clamp(10px,2.6vw,18px);
+  padding:0 var(--pad) clamp(6px,2vw,10px)}
+.pair figure{margin:0}
+.pair img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;
+  filter:saturate(.94)}
+.pair figcaption{margin-top:11px;font-family:var(--lat);font-weight:300;
+  font-size:.62rem;letter-spacing:.36em;color:var(--ink-soft);text-align:center}
+
+/* 滿版橫幅照片 */
+.band-photo{margin:0;position:relative}
+.band-photo img{width:100%;aspect-ratio:3/2;object-fit:cover;object-position:50% 34%;display:block}
+
+/* 流程 */
+.run{list-style:none;margin:0;padding:0;position:relative}
+.run::before{content:"";position:absolute;left:3px;top:12px;bottom:12px;width:1px;background:var(--hair)}
+.run li{position:relative;padding:0 0 clamp(20px,5vw,26px) 28px;
+  display:grid;grid-template-columns:62px 1fr;gap:2px 14px;align-items:baseline}
+.run li:last-child{padding-bottom:0}
+.run li::before{content:"";position:absolute;left:0;top:.72em;width:7px;height:7px;
+  background:var(--hai);transform:rotate(45deg)}
+.run li.key::before{background:var(--tsutsuji)}
+.run time{font-family:var(--lat);font-weight:300;font-size:1rem;letter-spacing:.12em}
+.run strong{font-weight:500;font-size:1.02rem;letter-spacing:.08em}
+.run small{grid-column:2;font-size:.85rem;color:var(--ink-soft);line-height:1.9}
+
+/* 地點 */
+.venue{font-weight:500;font-size:1.3rem;margin:0 0 .35em;letter-spacing:.1em}
+.addr{margin:0 0 clamp(22px,5vw,28px);color:var(--ink-soft);font-size:.96rem;letter-spacing:.04em}
+.notes{list-style:none;margin:clamp(26px,6vw,34px) 0 0;padding:0}
+.notes li{padding-top:15px;margin-top:15px;border-top:1px solid var(--hair);
+  display:grid;grid-template-columns:5em 1fr;gap:12px;font-size:.9rem;line-height:1.95}
+.notes li:first-child{margin-top:0;padding-top:0;border-top:0}
+.notes span{color:var(--kin);letter-spacing:.2em;font-size:.82rem}
+.notes p{margin:0;color:var(--ink-soft)}
+
+/* 回覆 */
+.rsvp{background:var(--kinari);text-align:center}
+.rsvp .title{justify-content:center;border-bottom-color:rgba(51,48,43,.16)}
+.rsvp p.lead{max-width:24em;margin:0 auto clamp(24px,6vw,30px);
+  color:var(--ink-soft);font-size:.95rem;line-height:2.2}
+.deadline{display:inline-block;margin:0 0 clamp(22px,5vw,28px);font-size:.78rem;
+  letter-spacing:.2em;color:var(--tsutsuji);border:1px solid rgba(192,66,75,.4);
+  padding:6px 18px;text-indent:.2em}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-size:.94rem;font-weight:500;letter-spacing:.2em;
+  text-indent:.2em;padding:16px 32px;border:1px solid var(--ink);
+  background:var(--ink);color:var(--paper);text-decoration:none;cursor:pointer;
+  transition:background .25s,border-color .25s,color .25s}
+.btn:hover{background:var(--kin);border-color:var(--kin)}
+.btn--ghost{background:transparent;color:var(--ink);border-color:var(--hair)}
+.btn--ghost:hover{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.btn--lg{width:100%;max-width:330px;padding:20px 32px;font-size:1rem}
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+a:focus-visible,button:focus-visible{outline:1px solid var(--kin);outline-offset:4px}
+
+/* footer */
+footer{text-align:center;padding:clamp(40px,9vw,56px) var(--pad) clamp(48px,10vw,64px);
+  font-size:.85rem;color:var(--ink-soft)}
+footer .contacts{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 26px;margin:0 0 1.6em}
+footer a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--hair)}
+footer .sig{margin:0;font-family:var(--lat);font-weight:200;
+  font-size:.72rem;letter-spacing:.5em;color:var(--kin);text-indent:.5em}
+
+@media (max-width:400px){
+  .run li{grid-template-columns:56px 1fr}
+  .notes li{grid-template-columns:1fr;gap:1px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <header class="hero">
+    <img src="hero-couple.jpg" alt="新郎與新娘的和裝合影">
+    <div class="hero__veil"></div>
+    <div class="hero__type">
+      <p class="hero__date" id="heroDate"></p>
+      <div class="vt">
+        <p class="vt__eyebrow">誠摯邀請您</p>
+        <h1 class="vt__names">
+          <span id="groom">新郎姓名</span>
+          <span id="bride">新娘姓名</span>
+        </h1>
+      </div>
+    </div>
+  </header>
+
+  <div class="knot">
+    <svg class="mizuhiki" viewBox="0 0 240 60" aria-hidden="true">
+      <path d="M0,44 C42,44 56,14 92,14 C120,14 124,50 152,50 C188,50 202,22 240,22" stroke="#C9BCB0"/>
+      <path d="M0,40 C42,40 56,10 92,10 C120,10 124,46 152,46 C188,46 202,18 240,18" stroke="#A98C52"/>
+      <path d="M0,16 C42,16 56,46 92,46 C120,46 124,10 152,10 C188,10 202,38 240,38" stroke="#C0424B"/>
+      <path d="M0,20 C42,20 56,50 92,50 C120,50 124,14 152,14 C188,14 202,42 240,42" stroke="#C9BCB0"/>
+    </svg>
+  </div>
+
+  <section class="greet">
+    <p>謝謝您一路上的陪伴。<br>立冬剛過，天氣慢慢涼了，<br>我們想邀請最重要的家人與朋友，<br>在暖暖的室內一起吃頓飯、<br>把這一天好好記下來。</p>
+    <p class="count" id="countdown"></p>
+  </section>
+
+  <div class="pair">
+    <figure><img src="groom.jpg" alt="新郎" loading="lazy"><figcaption>GROOM</figcaption></figure>
+    <figure><img src="bride.jpg" alt="新娘" loading="lazy"><figcaption>BRIDE</figcaption></figure>
+  </div>
+
+  <section id="run">
+    <div class="title"><span class="lat">SCHEDULE</span><h2>當天流程</h2></div>
+    <ol class="run" id="runList"></ol>
+  </section>
+
+  <section id="venue">
+    <div class="title"><span class="lat">VENUE</span><h2>宴會地點</h2></div>
+    <p class="venue" id="venueName"></p>
+    <p class="addr" id="venueAddr"></p>
+    <div class="btns">
+      <a class="btn btn--ghost" id="mapBtn" href="#" target="_blank" rel="noopener">開啟 Google 地圖</a>
+      <button class="btn btn--ghost" id="copyBtn" type="button">複製地址</button>
+      <a class="btn btn--ghost" id="calBtn" href="#" target="_blank" rel="noopener">加入行事曆</a>
+    </div>
+    <ul class="notes" id="notes"></ul>
+  </section>
+
+  <figure class="band-photo">
+    <img src="together.jpg" alt="新郎與新娘玩劍玉的合影" loading="lazy">
+  </figure>
+
+  <section class="rsvp" id="rsvp">
+    <div class="title"><span class="lat">RSVP</span><h2>出席回覆</h2></div>
+    <p class="lead">為了幫您留位子、準備餐點，麻煩花一分鐘填寫表單，讓我們知道您是否能來、幾位出席，以及有沒有素食或其他飲食需求。</p>
+    <p class="deadline" id="deadline"></p>
+    <p><a class="btn btn--lg" id="formBtn" href="#" target="_blank" rel="noopener">填寫出席表單</a></p>
+  </section>
+
+  <footer>
+    <div class="contacts" id="contacts"></div>
+    <p class="sig">SEE YOU THERE</p>
+  </footer>
+
+</main>
+
+<script>
+/* ══════════════════════════════════════════════════════════
+   ↓↓↓ 只要改這一段就好，其他都會自動更新 ↓↓↓
+   ══════════════════════════════════════════════════════════ */
+const WEDDING = {
+  groom: "新郎姓名",
+  bride: "新娘姓名",
+
+  date:      "2026-11-08",   // 婚禮日期 YYYY-MM-DD
+  startTime: "11:30",        // 入席時間
+  endTime:   "14:30",        // 預計結束
+
+  venueName: "蘭庭農莊花園餐廳",
+  address:   "363苗栗縣公館鄉尖山村尖山302-6號",
+  mapsUrl:   "",             // 留空 = 自動用店名＋地址搜尋 Google 地圖
+
+  formUrl:  "https://forms.gle/請貼上你的表單連結",
+  deadline: "2026-10-15",    // 回覆截止日
+
+  // 流程：key: true 代表重點（菱形記號會變杜鵑紅）
+  schedule: [
+    { time:"11:30", name:"賓客入席",  note:"報到後可先到簽名處與拍照區走走" },
+    { time:"12:00", name:"證婚儀式",  note:"於宴會廳內舉行，請一起見證我們交換誓詞", key:true },
+    { time:"12:30", name:"開席・敬酒", note:"" },
+    { time:"14:00", name:"合影・送客", note:"拍照區持續開放，歡迎多留一會兒" }
+  ],
+
+  // 注意事項
+  notes: [
+    { label:"時節", text:"這天是立冬的隔天（農曆九月三十），已經算入冬了。" },
+    { label:"服裝", text:"用餐全程在室內宴會廳，不會受天氣影響；不過早晚溫差大，往返路上建議加件外套。" },
+    { label:"交通", text:"自行開車由國道一號頭屋交流道下，車程約七分鐘；導航「蘭庭農莊花園餐廳」即可抵達。" },
+    { label:"停車", text:"場地備有停車場，抵達後可直接停放。" },
+    { label:"孩童", text:"歡迎攜家帶眷，請於表單註記大人與小孩人數。" }
+  ],
+
+  // 聯絡人
+  contacts: [
+    { name:"新郎", phone:"0900-000-000" },
+    { name:"新娘", phone:"0900-000-000" }
+  ]
+};
+/* ══════════════════════════════════════════════════════════
+   ↑↑↑ 以上改完就完成了 ↑↑↑
+   ══════════════════════════════════════════════════════════ */
+
+const W = WEDDING, $ = id => document.getElementById(id);
+const WEEK = ["SUN","MON","TUE","WED","THU","FRI","SAT"];
+const ZH   = ["日","一","二","三","四","五","六"];
+const d = new Date(W.date + "T" + W.startTime + ":00");
+
+document.title = `${W.groom} & ${W.bride}｜婚禮邀請`;
+$("groom").textContent = W.groom;
+$("bride").textContent = W.bride;
+$("heroDate").innerHTML =
+  `${W.date.replace(/-/g," . ")}<b>${WEEK[d.getDay()]}　${W.startTime}</b>`;
+
+const today = new Date(); today.setHours(0,0,0,0);
+const left = Math.round((new Date(W.date+"T00:00:00") - today) / 86400000);
+$("countdown").innerHTML =
+  left > 0   ? `距離婚禮還有 <b>${left}</b> 天` :
+  left === 0 ? `<b>今天</b>` : `謝謝您陪我們走過這一天`;
+
+$("runList").innerHTML = W.schedule.map(s => `
+  <li${s.key ? ' class="key"' : ''}>
+    <time>${s.time}</time><strong>${s.name}</strong>
+    ${s.note ? `<small>${s.note}</small>` : ""}
+  </li>`).join("");
+
+$("venueName").textContent = W.venueName;
+$("venueAddr").textContent = W.address;
+$("mapBtn").href = W.mapsUrl ||
+  "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(W.venueName + " " + W.address);
+
+$("notes").innerHTML = W.notes.map(n =>
+  `<li><span>${n.label}</span><p>${n.text}</p></li>`).join("");
+
+const stamp = t => W.date.replace(/-/g,"") + "T" + t.replace(":","") + "00";
+$("calBtn").href = "https://calendar.google.com/calendar/render?action=TEMPLATE"
+  + "&text=" + encodeURIComponent(`${W.groom} & ${W.bride} 婚禮`)
+  + "&dates=" + stamp(W.startTime) + "/" + stamp(W.endTime)
+  + "&location=" + encodeURIComponent(W.address)
+  + "&ctz=Asia/Taipei";
+
+$("copyBtn").addEventListener("click", async e => {
+  const btn = e.currentTarget, original = btn.textContent;
+  try { await navigator.clipboard.writeText(W.address); }
+  catch { const t = document.createElement("textarea");
+    t.value = W.address; document.body.appendChild(t); t.select();
+    document.execCommand("copy"); t.remove(); }
+  btn.textContent = "已複製地址";
+  setTimeout(() => btn.textContent = original, 1800);
+});
+
+$("formBtn").href = W.formUrl;
+const dl = new Date(W.deadline + "T00:00:00");
+$("deadline").textContent = `請於 ${dl.getMonth()+1} 月 ${dl.getDate()} 日前回覆`;
+
+$("contacts").innerHTML = W.contacts.map(c =>
+  `<span>${c.name}　<a href="tel:${c.phone.replace(/-/g,"")}">${c.phone}</a></span>`).join("");
+</script>
+</body>
+</html>
