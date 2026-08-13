@@ -155,10 +155,8 @@ section{padding:clamp(42px,10vw,66px) var(--pad)}
 a:focus-visible,button:focus-visible{outline:1px solid var(--kin);outline-offset:4px}
 
 /* footer */
-footer{text-align:center;padding:clamp(40px,9vw,56px) var(--pad) clamp(48px,10vw,64px);
+footer{text-align:center;padding:clamp(44px,10vw,62px) var(--pad) clamp(52px,11vw,70px);
   font-size:.85rem;color:var(--ink-soft)}
-footer .contacts{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 26px;margin:0 0 1.6em}
-footer a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--hair)}
 footer .sig{margin:0;font-family:var(--lat);font-weight:200;
   font-size:.72rem;letter-spacing:.5em;color:var(--kin);text-indent:.5em}
 
@@ -197,7 +195,7 @@ footer .sig{margin:0;font-family:var(--lat);font-weight:200;
   </div>
 
   <section class="greet">
-    <p>謝謝您一路上的陪伴。<br>立冬剛過，天氣慢慢涼了，<br>我們想邀請最重要的家人與朋友，<br>在暖暖的室內一起吃頓飯、<br>把這一天好好記下來。</p>
+    <p>時序剛過立冬，天涼了下來。<br>在這個適合圍坐的季節，<br>我們想邀請一路陪著我們的家人與朋友，<br>一起吃頓飯、說說話，<br>把這一天好好收進記憶裡。</p>
     <p class="count" id="countdown"></p>
   </section>
 
@@ -235,7 +233,6 @@ footer .sig{margin:0;font-family:var(--lat);font-weight:200;
   </section>
 
   <footer>
-    <div class="contacts" id="contacts"></div>
     <p class="sig">SEE YOU THERE</p>
   </footer>
 
@@ -246,41 +243,32 @@ footer .sig{margin:0;font-family:var(--lat);font-weight:200;
    ↓↓↓ 只要改這一段就好，其他都會自動更新 ↓↓↓
    ══════════════════════════════════════════════════════════ */
 const WEDDING = {
-  groom: "新郎姓名",
-  bride: "新娘姓名",
+  groom: "蘇聖天",
+  bride: "韓欣玲",
 
   date:      "2026-11-08",   // 婚禮日期 YYYY-MM-DD
-  startTime: "11:30",        // 入席時間
-  endTime:   "14:30",        // 預計結束
+  startTime: "12:00",        // 入席時間
+  endTime:   "15:00",        // 預計結束
 
   venueName: "蘭庭農莊花園餐廳",
   address:   "363苗栗縣公館鄉尖山村尖山302-6號",
   mapsUrl:   "",             // 留空 = 自動用店名＋地址搜尋 Google 地圖
 
-  formUrl:  "https://forms.gle/請貼上你的表單連結",
-  deadline: "2026-10-15",    // 回覆截止日
+  formUrl:  "https://forms.gle/2A3hSniQu7YjvAw1A",  // 回覆表單網址
+  deadline: "2026-09-20",    // 回覆截止日
 
   // 流程：key: true 代表重點（菱形記號會變杜鵑紅）
   schedule: [
-    { time:"11:30", name:"賓客入席",  note:"報到後可先到簽名處與拍照區走走" },
-    { time:"12:00", name:"證婚儀式",  note:"於宴會廳內舉行，請一起見證我們交換誓詞", key:true },
+    { time:"12:00", name:"賓客入席",  note:"報到後可先到簽名處與拍照區走走" },
     { time:"12:30", name:"開席・敬酒", note:"" },
-    { time:"14:00", name:"合影・送客", note:"拍照區持續開放，歡迎多留一會兒" }
+    { time:"15:00", name:"合影・送客", note:"拍照區持續開放，歡迎多留一會兒" }
   ],
 
   // 注意事項
   notes: [
-    { label:"時節", text:"這天是立冬的隔天（農曆九月三十），已經算入冬了。" },
-    { label:"服裝", text:"用餐全程在室內宴會廳，不會受天氣影響；不過早晚溫差大，往返路上建議加件外套。" },
     { label:"交通", text:"自行開車由國道一號頭屋交流道下，車程約七分鐘；導航「蘭庭農莊花園餐廳」即可抵達。" },
     { label:"停車", text:"場地備有停車場，抵達後可直接停放。" },
     { label:"孩童", text:"歡迎攜家帶眷，請於表單註記大人與小孩人數。" }
-  ],
-
-  // 聯絡人
-  contacts: [
-    { name:"新郎", phone:"0900-000-000" },
-    { name:"新娘", phone:"0900-000-000" }
   ]
 };
 /* ══════════════════════════════════════════════════════════
@@ -339,8 +327,6 @@ $("formBtn").href = W.formUrl;
 const dl = new Date(W.deadline + "T00:00:00");
 $("deadline").textContent = `請於 ${dl.getMonth()+1} 月 ${dl.getDate()} 日前回覆`;
 
-$("contacts").innerHTML = W.contacts.map(c =>
-  `<span>${c.name}　<a href="tel:${c.phone.replace(/-/g,"")}">${c.phone}</a></span>`).join("");
 </script>
 </body>
 </html>
