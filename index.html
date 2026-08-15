@@ -118,11 +118,11 @@ section{padding:clamp(42px,10vw,66px) var(--pad)}
 .card__names em{font-style:normal;font-weight:500;font-size:.66em;
   letter-spacing:.16em;margin-right:.3em}
 .card__names .amp{font-family:var(--lat);font-weight:200;font-size:.8em;color:var(--kin)}
-.card__parents{margin:0;display:flex;flex-wrap:wrap;justify-content:center;
-  gap:.35em clamp(18px,5vw,34px);
-  font-size:clamp(.88rem,3.6vw,1rem);letter-spacing:.06em}
-.card__parents .fam{display:flex;flex-wrap:wrap;justify-content:center;gap:.35em 1.1em}
-.card__parents .fam i{font-style:normal;color:var(--kin);margin-right:.45em}
+.card__parents{margin:0;display:flex;flex-wrap:nowrap;justify-content:center;
+  align-items:baseline;white-space:nowrap;gap:clamp(11px,3.6vw,34px);
+  font-size:clamp(.72rem,3.2vw,1rem);letter-spacing:.02em}
+.card__parents .fam{display:flex;flex-wrap:nowrap;gap:clamp(.5em,2vw,1.1em)}
+.card__parents .fam i{font-style:normal;color:var(--kin);margin-right:.35em}
 .card__invite{margin:clamp(22px,5vw,28px) 0 0;font-size:.95rem;
   letter-spacing:.42em;text-indent:.42em}
 .card__note{margin:clamp(10px,2.5vw,14px) 0 0;font-size:.8rem;letter-spacing:.1em;
@@ -295,7 +295,6 @@ const WEDDING = {
   // 喜帖卡片上的雙方家長，稱謂與姓名分開填。
   // 只列一位就寫一組；若某位已故想加註，稱謂可寫成 "先父"。
   groomParents: [
-    { role:"父", name:"蘇庚生" },
     { role:"母", name:"廖秀貞" }
   ],
   brideParents: [
