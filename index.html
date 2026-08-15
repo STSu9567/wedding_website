@@ -112,17 +112,19 @@ section{padding:clamp(42px,10vw,66px) var(--pad)}
   text-align:center;border:1px solid var(--hair);border-top:0}
 .card__lead{margin:0 0 clamp(24px,6vw,32px);font-size:.82rem;letter-spacing:.28em;
   text-indent:.28em;color:var(--kin)}
-.card__names{margin:0 0 clamp(15px,3.6vw,21px);display:flex;flex-wrap:wrap;
-  justify-content:center;align-items:baseline;gap:.15em .55em;
-  font-weight:700;letter-spacing:.1em;font-size:clamp(1.15rem,5.2vw,1.5rem)}
-.card__names em{font-style:normal;font-weight:500;font-size:.66em;
-  letter-spacing:.16em;margin-right:.3em}
-.card__names .amp{font-family:var(--lat);font-weight:200;font-size:.8em;color:var(--kin)}
-.card__parents{margin:0;display:flex;flex-wrap:nowrap;justify-content:center;
-  align-items:baseline;white-space:nowrap;gap:clamp(11px,3.6vw,34px);
+.card__block{display:grid;grid-template-columns:1fr auto 1fr;
+  justify-items:center;align-items:baseline;
+  column-gap:clamp(.3em,1.6vw,.6em);row-gap:clamp(15px,3.6vw,21px)}
+.card__block .nm{margin:0;white-space:nowrap;font-weight:700;letter-spacing:.1em;
+  font-size:clamp(1.05rem,5vw,1.5rem)}
+.card__block .nm em{font-style:normal;font-weight:500;font-size:.66em;
+  letter-spacing:.16em;margin-right:.35em}
+.card__block .amp{font-family:var(--lat);font-weight:200;color:var(--kin);
+  font-size:clamp(.85rem,4vw,1.2rem)}
+.card__block .par{margin:0;display:flex;flex-wrap:nowrap;white-space:nowrap;
+  gap:clamp(.5em,2vw,1.1em);
   font-size:clamp(.72rem,3.2vw,1rem);letter-spacing:.02em}
-.card__parents .fam{display:flex;flex-wrap:nowrap;gap:clamp(.5em,2vw,1.1em)}
-.card__parents .fam i{font-style:normal;color:var(--kin);margin-right:.35em}
+.card__block .par i{font-style:normal;color:var(--kin);margin-right:.35em}
 .card__invite{margin:clamp(22px,5vw,28px) 0 0;font-size:.95rem;
   letter-spacing:.42em;text-indent:.42em}
 .card__note{margin:clamp(10px,2.5vw,14px) 0 0;font-size:.8rem;letter-spacing:.1em;
@@ -309,7 +311,7 @@ const WEDDING = {
   address:   "363苗栗縣公館鄉尖山村尖山302-6號",
   mapsUrl:   "",             // 留空 = 自動用店名＋地址搜尋 Google 地圖
 
-  formUrl:  "https://forms.gle/DKTAqCiTyjinXRaY9",
+  formUrl:  "https://forms.gle/GbWs3aQg5HV7DTnn6",
   deadline: "2026-08-30",    // 回覆截止日
 
   // 流程：key: true 代表重點（菱形記號會變杜鵑紅）
